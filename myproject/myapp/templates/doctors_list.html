@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Doctors List View</h1>
+
+<ul>
+    <!-- Iterate over object_list -->
+    {% for object in doctors_list %}
+    <!-- Display Objects -->
+    <li>Name: {{ object.first_name }}</li>
+    <li><a href="{% url 'myapp:DoctorsDetail' object.pk%}">Details</a></li>
+    <hr/>
+    <!-- If object_list is empty  -->
+    {% empty %}
+    <li>No objects yet.</li>
+    {% endfor %}
+</ul>
+<h1> create </h1>
+<a href="{% url 'myapp:DoctorsCreate' %}">Create</a>
+</body>
+</html>

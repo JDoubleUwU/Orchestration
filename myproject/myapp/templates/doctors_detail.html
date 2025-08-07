@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Doctors Detail View</h1>
+
+<h1>Name: {{ doctors_detail.first_name }} {{ doctors_detail.last_name }}</h1>
+
+<ul>
+    <li>Specialty: {{ doctors_detail.specialty }}</li>
+</ul>
+
+{% if object.owner == user or user.is_staff %} 
+    <a href="{% url 'myapp:DoctorsUpdate' doctors_detail.pk %}">Edit</a>
+    <a href="{% url 'myapp:DoctorsDelete' doctors_detail.pk %}">Delete</a>
+{% endif %}
+
+</body>
+</html>
